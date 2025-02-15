@@ -5,4 +5,12 @@ Locales["de_lang"] = {
     AlreadyRingedTheBell = 'Du hast bereits Geklingelt Bitte Warte.',
     SomeoneWasCalled = 'Es Wurde jemand Gerufen.',
     SeemsLikeNoOneisThere = 'Es konnte niemand Gerufen werden Probiere es Später.',
+    WHPlayer = 'Spieler: ',
+    WHSteam = ' mit SteamID: ',
+    WHCharID = ' und CharID: ',
+    WHRingsBy = ' Klingelt bei: ',
+    WHNoOneOnline = ' Keiner ist Online',
+    YouCannoRingBlocked = 'Du hast zu viel Geklingelt und bist Gesperrt!!!',
+    BellFor = 'Klingeln für ',
+    Min = ' Minuten Gesperrt',
 }

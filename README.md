@@ -10,6 +10,8 @@
 # Changelog
 
 - 1.1.0 Initial Release Version
+- 1.1.1 Added Spam Protection
+- Added Webhook
 
 # installation 
 

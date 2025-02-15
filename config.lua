@@ -2,8 +2,29 @@ Config = {}
 
 Config.defaultlang = "de_lang"
 
--- Script Settings
 
+-- Webhook Settings
+
+Config.UseWebhook = true
+
+Config.WHTitle = 'Klingel: '
+Config.WHLink = ''  -- Discord WH link Here
+Config.WHColor = 16711680 -- red
+Config.WHName = 'Klingel: ' -- name
+Config.WHLogo = 'https://i.postimg.cc/90CyL4K5/Bell.png' -- must be 30x30px
+Config.WHFooterLogo = 'https://i.postimg.cc/90CyL4K5/Bell.png' -- must be 30x30px
+Config.WHAvatar = 'https://i.postimg.cc/90CyL4K5/Bell.png' -- must be 30x30px
+
+
+-- Script Settings
+-------------------------------------------------------------------------------------------
+-- In that Case you can Ring 5 Times in 15 minutes Before you get Blocked for 5 Minutes.
+-- To Disable Spam Protection Just Set the SpamProtect to 1000 oder Reset Counter to 1
+-- 
+Config.ResetBellCounter = 15 -- Time in Min To Auto Reset the Ring Counter                                                  
+Config.SpamProtect = 5 -- Spam Protect After 5 Rings How Often you can Ring before Blocked
+Config.ProtectionTime = 5 -- Time in Min the Bell get Blocked for Spamming
+-------------------------------------------------------------------------------------------
 Config.Bells = {
     {
         Name = 'Blackwater Office Klingel',
@@ -32,7 +53,7 @@ Config.Bells = {
             { Job = 'Police' },
             { Job = 'Sheriff' },
         },
-        ResetBelltime = 15, -- Time in Seconds
+        ResetBelltime = 3, -- Time in Seconds
         AlertText = 'Jemand Klingelt: Blackwater Port',
     },
 }
