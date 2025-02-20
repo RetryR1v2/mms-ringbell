@@ -13,4 +13,6 @@ Locales["de_lang"] = {
     YouCannoRingBlocked = 'Du hast zu viel Geklingelt und bist Gesperrt!!!',
     BellFor = 'Klingeln für ',
     Min = ' Minuten Gesperrt',
+    SomeoneWasCalledGroup = 'Es Wurde jemand Gerufen.',
+    SeemsLikeNoOneisThereGroup = 'Es konnte niemand Gerufen werden Probiere es Später.',
 }
