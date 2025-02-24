@@ -9,29 +9,59 @@ RegisterServerEvent('mms-ringbell:server:RingBell',function(CurrentBell)
     local SourceName = SourceCharacter.firstname .. ' ' .. SourceCharacter.lastname
     local SourceCharID = SourceCharacter.charIdentifier
     if CurrentBell.BellType == 1 then
-        for _, player in ipairs(GetPlayers()) do
-            if #GetPlayers() ~= nil then
-                local Character = VORPcore.getUser(player).getUsedCharacter
-                local Job = Character.job
-                for h,v in ipairs(CurrentBell.JobsToAlert) do
-                    if v.Job == Job then
-                        JobOnline = JobOnline + 1
-                        VORPcore.NotifyCenter(player, CurrentBell.AlertText, 5000)
+        if CurrentBell.VorpDutySystem then
+            for _, player in ipairs(GetPlayers()) do
+                if #GetPlayers() ~= nil then
+                    local Character = VORPcore.getUser(player).getUsedCharacter
+                    local Job = Character.job
+                    for h,v in ipairs(CurrentBell.JobsToAlert) do
+                        if v.Job == Job then
+                            local DutyStatus = Player(player).state.isPoliceDuty
+                            if DutyStatus ~= nil then
+                                VORPcore.NotifyCenter(player, CurrentBell.AlertText, 5000)
+                                JobOnline = JobOnline + 1
+                            end
+                        end
                     end
                 end
             end
-        end
-        if JobOnline > 0 then
-            VORPcore.NotifyTip(src,_U('SomeoneWasCalled'),5000)
-            if Config.UseWebhook then
-                VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name, Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+            if JobOnline > 0 then
+                VORPcore.NotifyTip(src,_U('SomeoneWasCalled'),5000)
+                if Config.UseWebhook then
+                    VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name, Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+                end
+                JobOnline = 0
+            else
+                if Config.UseWebhook then
+                    VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name .. _U('WHNoOneOnline'), Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+                end
+                VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisThere'),5000)
             end
-            JobOnline = 0
         else
-            if Config.UseWebhook then
-                VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name .. _U('WHNoOneOnline'), Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+            for _, player in ipairs(GetPlayers()) do
+                if #GetPlayers() ~= nil then
+                    local Character = VORPcore.getUser(player).getUsedCharacter
+                    local Job = Character.job
+                    for h,v in ipairs(CurrentBell.JobsToAlert) do
+                        if v.Job == Job then
+                            JobOnline = JobOnline + 1
+                            VORPcore.NotifyCenter(player, CurrentBell.AlertText, 5000)
+                        end
+                    end
+                end
             end
-            VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisThere'),5000)
+            if JobOnline > 0 then
+                VORPcore.NotifyTip(src,_U('SomeoneWasCalled'),5000)
+                if Config.UseWebhook then
+                    VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name, Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+                end
+                JobOnline = 0
+            else
+                if Config.UseWebhook then
+                    VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name .. _U('WHNoOneOnline'), Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+                end
+                VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisThere'),5000)
+            end
         end
     elseif CurrentBell.BellType == 2 then
         for _, player in ipairs(GetPlayers()) do

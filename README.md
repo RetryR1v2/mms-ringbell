@@ -13,6 +13,7 @@
 - 1.1.1 Added Spam Protection
 - Added Webhook
 - 1.1.2 Added BellType 1 JobAler 2 Group Alert
+- 1.1.3 Added Support for VORP Duty System.
 
 # installation 
 

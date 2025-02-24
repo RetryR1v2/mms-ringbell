@@ -39,7 +39,7 @@ Config.Bells = {
         JobsToAlert = { -- All This Jobs Get the Notification ( All Online Users )
             { Job = 'Marshall' },
             { Job = 'Police' },
-            { Job = 'Sheriff' },
+            { Job = 'BWPolice' },
         },
         GroupsToAlert = {
             { Group = 'admin' },
@@ -48,6 +48,7 @@ Config.Bells = {
         },
         ResetBelltime = 15, -- Time in Seconds
         AlertText = 'Jemand Klingelt: Blackwater Office',
+        VorpDutySystem = true, -- Now Supports Every Script that Uses VORPOnDuty Statebag System
     },
     {
         Name = 'Blackwater Port Klingel',
@@ -69,5 +70,6 @@ Config.Bells = {
         },
         ResetBelltime = 15, -- Time in Seconds
         AlertText = 'Jemand Klingelt: Blackwater Port',
+        VorpDutySystem = true, -- Now Supports Every Script that Uses VORPOnDuty Statebag System
     },
 }
