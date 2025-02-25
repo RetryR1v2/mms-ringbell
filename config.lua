@@ -48,6 +48,7 @@ Config.Bells = {
         },
         ResetBelltime = 15, -- Time in Seconds
         AlertText = 'Jemand Klingelt: Blackwater Office',
+        SayNoOneThere = true, -- If True you get a Notification No One is There
         VorpDutySystem = true, -- Now Supports Every Script that Uses VORPOnDuty Statebag System
     },
     {
@@ -70,6 +71,7 @@ Config.Bells = {
         },
         ResetBelltime = 15, -- Time in Seconds
         AlertText = 'Jemand Klingelt: Blackwater Port',
+        SayNoOneThere = true, -- If True you get a Notification No One is There
         VorpDutySystem = true, -- Now Supports Every Script that Uses VORPOnDuty Statebag System
     },
 }

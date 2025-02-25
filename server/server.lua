@@ -32,10 +32,12 @@ RegisterServerEvent('mms-ringbell:server:RingBell',function(CurrentBell)
                 end
                 JobOnline = 0
             else
-                if Config.UseWebhook then
-                    VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name .. _U('WHNoOneOnline'), Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+                if CurrentBell.SayNoOneThere then
+                    if Config.UseWebhook then
+                        VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name .. _U('WHNoOneOnline'), Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+                    end
+                    VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisThere'),5000)
                 end
-                VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisThere'),5000)
             end
         else
             for _, player in ipairs(GetPlayers()) do
@@ -57,10 +59,12 @@ RegisterServerEvent('mms-ringbell:server:RingBell',function(CurrentBell)
                 end
                 JobOnline = 0
             else
-                if Config.UseWebhook then
-                    VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name .. _U('WHNoOneOnline'), Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+                if CurrentBell.SayNoOneThere then
+                    if Config.UseWebhook then
+                        VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name .. _U('WHNoOneOnline'), Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+                    end
+                    VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisThere'),5000)
                 end
-                VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisThere'),5000)
             end
         end
     elseif CurrentBell.BellType == 2 then
@@ -83,10 +87,12 @@ RegisterServerEvent('mms-ringbell:server:RingBell',function(CurrentBell)
             end
             GroupOnline = 0
         else
-            if Config.UseWebhook then
-                VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name .. _U('WHNoOneOnline'), Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+            if CurrentBell.SayNoOneThere then
+                if Config.UseWebhook then
+                    VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,_U('WHPlayer') .. SourceName .. _U('WHSteam') .. SourceSteamID .. _U('WHCharID') .. SourceCharID .. _U('WHRingsBy') .. CurrentBell.Name .. _U('WHNoOneOnline'), Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
+                end
+                VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisThereGroup'),5000)
             end
-            VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisThereGroup'),5000)
         end
     end
 end)
