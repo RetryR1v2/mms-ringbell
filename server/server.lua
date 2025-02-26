@@ -21,6 +21,11 @@ RegisterServerEvent('mms-ringbell:server:RingBell',function(CurrentBell)
                                 VORPcore.NotifyCenter(player, CurrentBell.AlertText, 5000)
                                 JobOnline = JobOnline + 1
                             end
+                            local DutyStatusMedic = Player(player).state.isMedicDuty
+                            if DutyStatusMedic ~= nil then
+                                VORPcore.NotifyCenter(player, CurrentBell.AlertText, 5000)
+                                JobOnline = JobOnline + 1
+                            end
                         end
                     end
                 end
