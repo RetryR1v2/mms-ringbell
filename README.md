@@ -16,6 +16,8 @@
 - 1.1.3 Added Support for VORP Duty System.
 - 1.1.4 You can Disable the Notification No One Alerted
 - 1.1.5 Fixed Duty System VORP Medic and Police
+- 1.1.6 Fixed Duty System VORP Medic and Police This Time its Really Fixed ;)
+- Update All Files Config Changed
 
 # installation 
 

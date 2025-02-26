@@ -17,14 +17,22 @@ RegisterServerEvent('mms-ringbell:server:RingBell',function(CurrentBell)
                     for h,v in ipairs(CurrentBell.JobsToAlert) do
                         if v.Job == Job then
                             local DutyStatus = Player(player).state.isPoliceDuty
-                            if DutyStatus ~= nil then
+                            if DutyStatus then
                                 VORPcore.NotifyCenter(player, CurrentBell.AlertText, 5000)
                                 JobOnline = JobOnline + 1
+                            else
+                                if CurrentBell.SayNoOneOnDuty then
+                                    VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisOnDuty'),5000)
+                                end
                             end
                             local DutyStatusMedic = Player(player).state.isMedicDuty
-                            if DutyStatusMedic ~= nil then
+                            if DutyStatusMedic then
                                 VORPcore.NotifyCenter(player, CurrentBell.AlertText, 5000)
                                 JobOnline = JobOnline + 1
+                            else
+                                if CurrentBell.SayNoOneOnDuty then
+                                    VORPcore.NotifyTip(src,_U('SeemsLikeNoOneisOnDuty'),5000)
+                                end
                             end
                         end
                     end

@@ -15,4 +15,5 @@ Locales["de_lang"] = {
     Min = ' Minuten Gesperrt',
     SomeoneWasCalledGroup = 'Es Wurde jemand Gerufen.',
     SeemsLikeNoOneisThereGroup = 'Es konnte niemand Gerufen werden Probiere es Später.',
+    SeemsLikeNoOneisOnDuty = 'Es ist keiner im Dienst',
 }
